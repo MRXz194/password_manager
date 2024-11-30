@@ -73,7 +73,6 @@ tunnels:
 
 2. Generate strong secret keys:
    - Use the provided command to generate a secure SECRET_KEY
-   - Never reuse encryption keys across installations
    - Keep your encryption key file secure
 
 3. Development vs Production:
