@@ -23,7 +23,7 @@ A web-based password manager built with Flask that allows users to securely stor
 
 1. Clone the repository:
 ```bash
-git clone <repository-url>
+git clone <https://github.com/MRXz194/password_manager>
 cd password-manager
 ```
 
@@ -73,7 +73,6 @@ tunnels:
 
 2. Generate strong secret keys:
    - Use the provided command to generate a secure SECRET_KEY
-   - Never reuse encryption keys across installations
    - Keep your encryption key file secure
 
 3. Development vs Production:
