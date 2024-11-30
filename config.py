@@ -17,7 +17,7 @@ class DevelopmentConfig(Config):
 
 class ProductionConfig(Config):
     DEBUG = False
-    # Using PostgreSQL 
+    # PostgreSQL 
     SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL')
     FORCE_HTTPS = True
     # Security setting

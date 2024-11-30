@@ -6,7 +6,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from cryptography.fernet import Fernet
 from dotenv import load_dotenv
 
-# Load environment vvar(lmao)
+# Load bien mtrng(lmao)
 load_dotenv()
 
 app = Flask(__name__)

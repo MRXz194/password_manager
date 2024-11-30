@@ -1,4 +1,4 @@
-# Environment variables
+# Envir
 .env
 
 # Database
@@ -6,7 +6,7 @@
 instance/
 passwords.db
 
-# Encryption keys
+# Encryption key
 *.key
 key.key
 secret.key
@@ -49,5 +49,5 @@ ngrok.yml
 run_ngrok.bat
 !run_ngrok.bat.example
 
-# Logs
+# Log
 *.log
