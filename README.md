@@ -23,7 +23,7 @@ A web-based password manager built with Flask that allows users to securely stor
 
 1. Clone the repository:
 ```bash
-git clone <repository-url>
+git clone <https://github.com/MRXz194/password_manager>
 cd password-manager
 ```
 
