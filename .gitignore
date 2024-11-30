@@ -1,0 +1,53 @@
+# Environment variables
+.env
+
+# Database
+*.db
+instance/
+passwords.db
+
+# Encryption keys
+*.key
+key.key
+secret.key
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual Environment
+venv/
+ENV/
+
+# IDE
+.vscode/
+.idea/
+
+# Ngrok
+ngrok.yml
+.ngrok2/
+
+# Batch files with sensitive data
+run_ngrok.bat
+!run_ngrok.bat.example
+
+# Logs
+*.log

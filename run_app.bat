@@ -1,0 +1,6 @@
+@echo off
+echo Starting Password Manager...
+call venv\Scripts\activate.bat
+
+echo Starting Flask application...
+python app.py
