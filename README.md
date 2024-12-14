@@ -89,6 +89,8 @@ tunnels:
 - python-dotenv
 - Werkzeug
 
+# you can use vercal to host public this web based :333 meow 
+
 
 
 
