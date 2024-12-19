@@ -2,21 +2,15 @@
 A web-based password manager built with Flask that allows users to securely store and manage their passwords. Features temporary hosting capabilities through ngrok for development and testing.
 
 ## Features
-- User registration and authentication
 - Secure password storage with encryption
 - Add, view, and delete passwords
-- Show/hide password functionality
-- Modern and responsive UI
-- Flash messages for user feedback
+- Show/hide password 
 - Temporary public access via ngrok tunnel
 
 ## Security Features
-
 - Passwords are encrypted using Fernet symmetric encryption
 - User passwords are hashed using SHA-256
 - Session management with Flask-Login
-- Secure password viewing with toggle functionality
-- Environment-based configuration
 - Secure key storage
 
 ## Installation
@@ -31,7 +25,6 @@ cd password-manager
 ```bash
 python -m venv venv
 venv\Scripts\activate  # Windows
-source venv/bin/activate  # Linux
 ```
 
 3. Install the required packages:
@@ -60,7 +53,6 @@ tunnels:
 - you can use run.ngrok.bat to run ngrok s
 
 
-
 ## Security Notes
 
 ### Important Security Considerations
@@ -71,11 +63,10 @@ tunnels:
    - `*.key` encryption key files
    - `ngrok.yml` with your authtoken
 
-2. Generate strong secret keys:
+2. Generate secret keys:
    - Use the provided command to generate a secure SECRET_KEY
-   - Keep your encryption key file secure
 
-3. Development vs Production:
+3. Development & Production:
    - The current setup is for development/testing only
    - I use ngrok for temporary public access
 
