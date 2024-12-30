@@ -57,8 +57,8 @@ tunnels:
 
 ### Important Security Considerations
 
-1. Never commit sensitive files to version control:
-   - `.env` file containing environment variables
+1. No commit sensitive files:
+   - `.env` env file
    - `*.db` database files
    - `*.key` encryption key files
    - `ngrok.yml` with your authtoken
