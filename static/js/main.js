@@ -67,7 +67,7 @@ function calculatePasswordStrength(password) {
 }
 
 function updatePasswordStrengthMeter(strength) {
-    const meter = document.querySelector('.password-strength-meter');
+    const meter = document.querySelector('.password-strength-meter'); // Get the password strength meter
     if (!meter) return;
     
     const strengthText = ['Very Weak', 'Weak', 'Fair', 'Good', 'Strong', 'Very Strong'];
