@@ -1,3 +1,8 @@
+#################################################
+# Built by MRX 2024
+# chill project
+# github: https://github.com/MRXz194   Discord: kz5198
+##################################################
 import os
 from flask import Flask, render_template, request, redirect, url_for, flash
 from flask_sqlalchemy import SQLAlchemy

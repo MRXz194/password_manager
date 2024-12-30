@@ -1,17 +1,17 @@
-# Envir
+
 .env
 
-# Database
+
 *.db
 instance/
 passwords.db
 
-# Encryption key
+
 *.key
 key.key
 secret.key
 
-# Python
+
 __pycache__/
 *.py[cod]
 *$py.class
@@ -33,21 +33,21 @@ var/
 .installed.cfg
 *.egg
 
-# Virtual Environment
+
 venv/
 ENV/
 
-# IDE
+
 .vscode/
 .idea/
 
-# Ngrok
+
 ngrok.yml
 .ngrok2/
 
-# Batch files with sensitive data
+
 run_ngrok.bat
 !run_ngrok.bat.example
 
-# Log
+
 *.log
