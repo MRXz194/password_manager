@@ -1,4 +1,4 @@
-# Secure Password Manager
+
 A web-based password manager built with Flask . Features temporary hosting capabilities through ngrok for development and testing.
 
 - Secure password storage with encryption
@@ -47,7 +47,7 @@ tunnels:
     addr: 8080
 ```
 
-## Running the Appplication
+## Run the app
 - you can run app.bat to run the app
 - you can use run.ngrok.bat to run ngrok s
 
