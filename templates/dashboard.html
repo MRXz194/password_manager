@@ -1,0 +1,139 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard - SecureVault{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-4 mb-4">
+        <div class="card">
+            <div class="card-body">
+                <h3 class="card-title mb-4">Add New Password</h3>
+                <form method="POST" action="{{ url_for('add_password') }}">
+                    <div class="mb-3">
+                        <label for="site" class="form-label">Website</label>
+                        <input type="text" class="form-control" id="site" name="site" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="username" class="form-label">Username</label>
+                        <input type="text" class="form-control" id="username" name="username" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Password</label>
+                        <div class="input-group">
+                            <input type="password" class="form-control" id="password" name="password" required>
+                            <button type="button" class="btn btn-outline-secondary" onclick="togglePassword(this)">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-primary">Add Password</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-8">
+        <div class="card mb-4">
+            <div class="card-body">
+                <div class="input-group">
+                    <span class="input-group-text"><i class="fas fa-search"></i></span>
+                    <input type="text" class="form-control" id="searchInput" placeholder="Search passwords by website or username..." onkeyup="searchPasswords()">
+                </div>
+            </div>
+        </div>
+
+        <h2 class="mb-4">Your Passwords</h2>
+        {% if passwords %}
+            <div class="row" id="passwordsList">
+                {% for password in passwords %}
+                    <div class="col-md-6 mb-4 password-entry" data-site="{{ password.site.lower() }}" data-username="{{ password.username.lower() }}">
+                        <div class="card password-item">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <h5 class="card-title mb-0">{{ password.site }}</h5>
+                                    <a href="{{ url_for('delete_password', id=password.id) }}" 
+                                       class="btn btn-outline-danger btn-sm"
+                                       onclick="return confirm('Are you sure you want to delete this password?')">
+                                        <i class="fas fa-trash"></i>
+                                    </a>
+                                </div>
+                                <div class="mb-2">
+                                    <strong>Username:</strong> {{ password.username }}
+                                </div>
+                                <div class="mb-2">
+                                    <strong>Password:</strong>
+                                    <div class="input-group">
+                                        <input type="password" class="form-control" value="{{ password.get_password() }}" readonly>
+                                        <button type="button" class="btn btn-outline-secondary" onclick="togglePassword(this)">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                        <button type="button" class="btn btn-outline-secondary" onclick="copyToClipboard(this.previousElementSibling)">
+                                            <i class="fas fa-copy"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                {% if password.created_at %}
+                                    <small class="text-muted">Added: {{ password.created_at.strftime('%Y-%m-%d %H:%M') }}</small>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <div class="card">
+                <div class="card-body text-center">
+                    <i class="fas fa-lock fa-3x text-muted mb-3"></i>
+                    <h5>No passwords stored yet</h5>
+                    <p class="text-muted">Add your first password using the form on the left.</p>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+</div>
+
+<script>
+function togglePassword(button) {
+    const input = button.previousElementSibling || button.parentElement.querySelector('input');
+    if (input.type === 'password') {
+        input.type = 'text';
+        button.innerHTML = '<i class="fas fa-eye-slash"></i>';
+    } else {
+        input.type = 'password';
+        button.innerHTML = '<i class="fas fa-eye"></i>';
+    }
+}
+
+function copyToClipboard(input) {
+    input.type = 'text';
+    input.select();
+    document.execCommand('copy');
+    input.type = 'password';
+    
+    // Show a temporary "Copied!" message
+    const originalButton = input.nextElementSibling.nextElementSibling.innerHTML;
+    input.nextElementSibling.nextElementSibling.innerHTML = '<i class="fas fa-check"></i>';
+    setTimeout(() => {
+        input.nextElementSibling.nextElementSibling.innerHTML = originalButton;
+    }, 1000);
+}
+
+function searchPasswords() {
+    const searchInput = document.getElementById('searchInput');
+    const filter = searchInput.value.toLowerCase();
+    const passwordEntries = document.getElementsByClassName('password-entry');
+
+    for (let entry of passwordEntries) {
+        const site = entry.getAttribute('data-site');
+        const username = entry.getAttribute('data-username');
+        if (site.includes(filter) || username.includes(filter)) {
+            entry.style.display = '';
+        } else {
+            entry.style.display = 'none';
+        }
+    }
+}
+</script>
+{% endblock %}
